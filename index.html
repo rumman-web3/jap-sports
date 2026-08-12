@@ -12,8 +12,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
-    <!-- Preload LCP Hero Image for under 1 sec LCP -->
-    <link rel="preload" as="image" href="/img1.webp" type="image/webp" fetchpriority="high" />
+    <!-- Preload LCP Hero Image for under 0.5 sec LCP -->
+    <link rel="preload" as="image" href="/img1-mobile.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/img1.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
 
     <!-- Google Fonts with display=swap -->
     <link

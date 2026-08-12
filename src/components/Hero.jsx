@@ -103,11 +103,12 @@ export default function Hero() {
     >
       <div className="hero__media" aria-hidden="false">
         <picture>
+          <source media="(max-width: 768px)" srcSet="/img1-mobile.webp" type="image/webp" />
           <img
             ref={imgRef}
             src={heroImg}
-            width="2816"
-            height="1536"
+            width="1600"
+            height="872"
             alt="夕暮れの国立競技場。木の庇と観客の列。"
             fetchPriority="high"
             decoding="async"
