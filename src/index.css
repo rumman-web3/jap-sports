@@ -30,7 +30,7 @@
 
   /* — typography — */
   --font-jp:
-    "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo",
+    "Shippori Mincho", "Noto Serif JP", "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo",
     system-ui, sans-serif;
 
   --radius: 2px;
