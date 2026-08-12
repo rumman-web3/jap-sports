@@ -98,7 +98,7 @@ export default function Passion() {
         width="3168"
         height="1344"
         alt="サッカースタジアムを埋め尽くす青いサポーターと、翻る旗。夜の照明。"
-        loading="eager"
+        loading="lazy"
         decoding="async"
       />
       <span className="passion__scrim" aria-hidden="true" />
