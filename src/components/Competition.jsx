@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const baseballImg = "/img3.png";
+const sumoImg = "/img3.webp";
 
 export default function Competition() {
   const rootRef = useRef(null);

@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 // Reusing img3 with a wide panoramic top-crop that emphasises the
 // warm horizon rather than the batter — reads as morning light over
 // athletes. Swap this src when a dedicated asset is provided.
-const sunriseImg = "/img3.png";
+const sunriseImg = "/img3.webp";
 
 // HMR-swapping a pinned component leaves GSAP pin-spacer wrappers stale;
 // invalidate this module so Vite performs a full reload instead.

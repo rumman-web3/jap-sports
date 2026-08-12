@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 // HMR-swapping this component leaves GSAP pin-spacer wrappers stale;
 // invalidate the module so Vite performs a full reload instead.
 if (import.meta.hot) import.meta.hot.invalidate();
-const heroImg = "/img1.png";
+const heroImg = "/img1.webp";
 
 export default function Hero() {
   const rootRef = useRef(null);

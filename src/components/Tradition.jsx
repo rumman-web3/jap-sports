@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const kendoImg = "/img2.png";
+const kendoImg = "/img2.webp";
 
 export default function Tradition() {
   const rootRef = useRef(null);

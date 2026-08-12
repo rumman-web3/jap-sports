@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { audioEngine } from "../utils/audioEngine.js";
 
-const athleteImg = "/img5.png";
+const athleteImg = "/img5.webp";
 
 const SCHEDULE = [
   { time: "05:00", kanji: "黎明", title: "静寂と呼吸", desc: "日の出前の道場で、ただ呼吸だけに集中する。外界の音を遮断し、己の心拍と向き合う瞑想の時間。" },

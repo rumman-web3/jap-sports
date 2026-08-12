@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 // invalidate the module so Vite performs a full reload instead.
 if (import.meta.hot) import.meta.hot.invalidate();
 
-const crowdImg = "/img4.png";
+const crowdImg = "/img4.webp";
 
 export default function Passion() {
   const rootRef = useRef(null);

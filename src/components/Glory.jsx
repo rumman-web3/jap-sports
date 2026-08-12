@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { audioEngine } from "../utils/audioEngine.js";
 
-const trophyImg = "/img6.png";
+const trophyImg = "/img6.webp";
 
 const ACHIEVEMENTS = [
   {
