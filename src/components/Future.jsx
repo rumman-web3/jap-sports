@@ -1,25 +1,19 @@
 import { useEffect, useRef } from "react";
 
-// NOTE: No 7th "sunrise athletes" asset ships in /public.
-// Reusing img3 with a wide panoramic top-crop that emphasises the
-// warm horizon rather than the batter — reads as morning light over
-// athletes. Swap this src when a dedicated asset is provided.
-const sunriseImg = "/img3.webp";
-
-// HMR-swapping a pinned component leaves GSAP pin-spacer wrappers stale;
-// invalidate this module so Vite performs a full reload instead.
 if (import.meta.hot) import.meta.hot.invalidate();
+
+const sunriseImg = "/img3.webp";
 
 export default function Future() {
   const rootRef = useRef(null);
 
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const desktop = window.matchMedia("(min-width: 861px)").matches;
     let mounted = true;
     let cleanup = () => {};
 
-    (async () => {
+    const timer = setTimeout(async () => {
+      if (!mounted) return;
       const [{ gsap }, { ScrollTrigger }] = await Promise.all([
         import("gsap"),
         import("gsap/ScrollTrigger"),
@@ -36,45 +30,30 @@ export default function Future() {
 
         if (reduce) return;
 
-        gsap.set(image, { scale: 1 });
-        gsap.set(meta, { opacity: 0, y: 8 });
-        gsap.set(word, { opacity: 0, y: 20 });
-        gsap.set(secondary, { opacity: 0, y: 16 });
+        gsap.set(word, { opacity: 0, y: 30 });
+        gsap.set(secondary, { opacity: 0, y: 20 });
+        gsap.set(meta, { opacity: 0, y: 10 });
 
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: root,
-            start: desktop ? "top top" : "top 80%",
-            end: desktop ? "+=110%" : "bottom top",
-            scrub: 0.6,
-            pin: desktop,
-            pinSpacing: desktop,
-            pinType: "transform",
-            anticipatePin: 1,
+            start: "top 75%",
+            toggleActions: "play none none none",
           },
         });
 
-        // Very quiet reveal — long, opacity-led.
-        tl.to(meta, { opacity: 1, y: 0, ease: "power1.out" }, 0.05)
-          .to(word, { opacity: 1, y: 0, ease: "power1.out" }, 0.2)
-          .to(
-            secondary,
-            { opacity: 1, y: 0, ease: "power1.out" },
-            0.4
-          )
-          // Image scale drifts only slightly across the whole pin.
-          .to(image, { scale: 1.02, ease: "none" }, 0)
-          // Fade the wordmark out near the end so the footer takes over softly.
-          .to(word, { opacity: 0.7, ease: "power1.in" }, 0.85);
-
-        requestAnimationFrame(() => ScrollTrigger.refresh());
+        tl.to(meta, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, 0)
+          .to(word, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, 0.2)
+          .to(secondary, { opacity: 1, y: 0, duration: 0.9, ease: "power2.out" }, 0.4)
+          .to(image, { scale: 1.04, ease: "none", scrollTrigger: { trigger: root, start: "top bottom", end: "bottom top", scrub: true } }, 0);
       }, rootRef);
 
       cleanup = () => ctx.revert();
-    })();
+    }, 400);
 
     return () => {
       mounted = false;
+      clearTimeout(timer);
       cleanup();
     };
   }, []);
@@ -88,8 +67,8 @@ export default function Future() {
       <img
         className="future__img"
         src={sunriseImg}
-        width="2752"
-        height="1536"
+        width="1400"
+        height="781"
         alt="朝の光を受ける競技場と若い選手たち。地平線に射す暖かい光。"
         loading="lazy"
         decoding="async"
