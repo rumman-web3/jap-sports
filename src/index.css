@@ -226,7 +226,9 @@ p {
   inset: 0 0 auto 0;
   z-index: 100;
   height: var(--nav-h);
-  background-color: rgba(250, 248, 244, 0.92);
+  background-color: rgba(8, 9, 13, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--color-rule-soft);
   transition:
     background-color 0.35s var(--ease),
@@ -234,8 +236,15 @@ p {
   will-change: background-color;
 }
 .nav[data-scrolled="true"] {
-  background-color: rgba(250, 248, 244, 0.98);
+  background-color: rgba(8, 9, 13, 0.95);
   border-bottom-color: var(--color-rule);
+}
+
+[data-theme="light"] .nav {
+  background-color: rgba(250, 248, 244, 0.92);
+}
+[data-theme="light"] .nav[data-scrolled="true"] {
+  background-color: rgba(250, 248, 244, 0.98);
 }
 
 .nav__inner {
@@ -537,14 +546,14 @@ body[data-menu-open="true"] {
   background:
     linear-gradient(
       to top,
-      rgba(10, 12, 18, 0.55) 0%,
-      rgba(10, 12, 18, 0.2) 32%,
-      rgba(10, 12, 18, 0) 60%
+      rgba(8, 9, 13, 0.75) 0%,
+      rgba(8, 9, 13, 0.35) 40%,
+      rgba(8, 9, 13, 0.2) 100%
     ),
     linear-gradient(
       to right,
-      rgba(10, 12, 18, 0.35) 0%,
-      rgba(10, 12, 18, 0) 55%
+      rgba(8, 9, 13, 0.45) 0%,
+      rgba(8, 9, 13, 0.1) 60%
     );
   pointer-events: none;
 }
@@ -564,7 +573,7 @@ body[data-menu-open="true"] {
 .hero__meta {
   grid-column: 1 / span 6;
   grid-row: 1;
-  color: rgba(250, 248, 244, 0.72);
+  color: rgba(255, 255, 255, 0.85);
   letter-spacing: 0.22em;
   display: inline-flex;
   align-items: center;
@@ -586,11 +595,11 @@ body[data-menu-open="true"] {
   line-height: 0.94;
   letter-spacing: -0.015em;
   font-size: clamp(64px, 15vw, 220px);
-  color: var(--color-paper);
+  color: #ffffff;
   display: flex;
   flex-direction: column;
   margin-left: -0.04em;
-  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.18);
+  text-shadow: 0 4px 32px rgba(0, 0, 0, 0.6);
   will-change: transform, opacity;
 }
 .hero__primary span:last-of-type {
@@ -603,10 +612,10 @@ body[data-menu-open="true"] {
   align-self: end;
   justify-self: end;
   text-align: right;
-  font-size: clamp(15px, 1.35vw, 20px);
+  font-size: clamp(15px, 1.15vw, 19px);
   line-height: 1.85;
-  letter-spacing: 0.06em;
-  color: rgba(250, 248, 244, 0.92);
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.92);
   max-width: 22ch;
   will-change: opacity, transform;
 }
@@ -615,7 +624,7 @@ body[data-menu-open="true"] {
   grid-column: 1 / span 4;
   grid-row: 3;
   align-self: end;
-  color: rgba(250, 248, 244, 0.6);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 @media (max-width: 720px) {
